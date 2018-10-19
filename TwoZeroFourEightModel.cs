@@ -12,6 +12,8 @@ namespace twozerofoureight
         protected int[,] board;
         protected Random rand;
 
+        public int score;
+
         public TwoZeroFourEightModel() : this(4)
         {
             // default board size is 4 
@@ -32,14 +34,84 @@ namespace twozerofoureight
             NotifyAll();
         }
 
+        public bool isFull()
+        {
+            for(int i=0; i<boardSize; i++)
+            {
+                for(int j=0; j<boardSize; j++)
+                {
+                    if(board[i,j] == 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        public bool gameOver()
+        {
+            for (int i = 0; i < boardSize-1; i++)
+            {
+                for (int j = 0; j < boardSize; j++)
+                {
+                    if (board[i, j] == board[i+1,j])
+                    {
+                        return false;
+                    }
+                }
+            }
+            for (int i = 0; i < boardSize; i++)
+            {
+                for (int j = 0; j < boardSize-1; j++)
+                {
+                    if (board[i, j] == board[i, j + 1])
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        public int Score()
+        {
+            score = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    score = score + board[i, j];
+                }
+            }
+            return score;
+        }
+
+        public void Clear()
+        {
+            score = 0;
+            board = new int[boardSize, boardSize];
+            var range = Enumerable.Range(0, boardSize);
+            foreach (int i in range)
+            {
+                foreach (int j in range)
+                {
+                    board[i, j] = 0;
+                }
+            }
+            rand = new Random();
+            board = Random(board);
+        }
+
         public int[,] GetBoard()
         {
+            Score();
             return board;
         }
 
         private int[,] Random(int[,] input)
         {
-            while (true)
+            while (!isFull())
             {
                 int x = rand.Next(boardSize);
                 int y = rand.Next(boardSize);

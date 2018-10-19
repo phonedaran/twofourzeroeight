@@ -46,6 +46,7 @@
             this.lbl30 = new System.Windows.Forms.Label();
             this.ScoreLb = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbl00
@@ -259,29 +260,38 @@
             // ScoreLb
             // 
             this.ScoreLb.AutoSize = true;
-            this.ScoreLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.ScoreLb.Location = new System.Drawing.Point(127, 404);
+            this.ScoreLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.ScoreLb.Location = new System.Drawing.Point(63, 426);
             this.ScoreLb.Name = "ScoreLb";
-            this.ScoreLb.Size = new System.Drawing.Size(153, 32);
+            this.ScoreLb.Size = new System.Drawing.Size(270, 58);
             this.ScoreLb.TabIndex = 20;
             this.ScoreLb.Text = "SCORE : 0";
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.textBox1.Location = new System.Drawing.Point(74, 455);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.textBox1.Location = new System.Drawing.Point(12, 426);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(279, 45);
+            this.textBox1.Size = new System.Drawing.Size(420, 62);
             this.textBox1.TabIndex = 21;
+            this.textBox1.TabStop = false;
             this.textBox1.Text = "Press key to start";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(492, 371);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(12, 22);
+            this.textBox2.TabIndex = 22;
             // 
             // TwoZeroFourEightView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 527);
+            this.ClientSize = new System.Drawing.Size(462, 527);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.ScoreLb);
             this.Controls.Add(this.lbl33);
@@ -327,7 +337,8 @@
         private System.Windows.Forms.Label lbl31;
         private System.Windows.Forms.Label lbl30;
         private System.Windows.Forms.Label ScoreLb;
-        private System.Windows.Forms.TextBox textBox1;
+        protected System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

@@ -14,8 +14,6 @@ namespace twozerofoureight
     {
         Model model;
         Controller controller;
-
-        int score;
        
         public TwoZeroFourEightView()
         {
@@ -25,12 +23,31 @@ namespace twozerofoureight
             controller = new TwoZeroFourEightController();
             controller.AddModel(model);
             controller.ActionPerformed(TwoZeroFourEightController.LEFT);
-            textBox1.KeyDown += new KeyEventHandler(KeyDown);
+            textBox2.KeyDown += new KeyEventHandler(KeyDown);
         }
 
         public void Notify(Model m)
         {
             UpdateBoard(((TwoZeroFourEightModel) m).GetBoard());
+            ScoreLb.Text = "SCORE : " + Convert.ToString(((TwoZeroFourEightModel)m).score);
+            if (((TwoZeroFourEightModel)m).isFull())
+            {
+                if (((TwoZeroFourEightModel)m).gameOver())
+                {
+                    var result = MessageBox.Show("Game Over\n score : " + (((TwoZeroFourEightModel)m).score) 
+                                                   + "\n Restart ?","Game Over", MessageBoxButtons.YesNo);
+                    if(result == DialogResult.Yes)
+                    {
+                        ((TwoZeroFourEightModel)m).Clear();
+                        UpdateBoard(((TwoZeroFourEightModel)m).GetBoard());
+                        ScoreLb.Text = "SCORE : " + Convert.ToString(((TwoZeroFourEightModel)m).score);
+                    }
+                    else
+                    {
+                        Application.Exit();
+                    }
+                }
+            }
         }
 
         private void UpdateTile(Label l, int i)
@@ -50,13 +67,37 @@ namespace twozerofoureight
                     l.BackColor = Color.DarkGray;
                     break;
                 case 4:
-                    l.BackColor = Color.Orange;
+                    l.BackColor = Color.PeachPuff;
                     break;
                 case 8:
-                    l.BackColor = Color.Red;
+                    l.BackColor = Color.BurlyWood;
+                    break;
+                case 16:
+                    l.BackColor = Color.SandyBrown;
+                    break;
+                case 32:
+                    l.BackColor = Color.IndianRed;
+                    break;
+                case 64:
+                    l.BackColor = Color.Tomato;
+                    break;
+                case 128:
+                    l.BackColor = Color.PaleGreen;
+                    break;
+                case 256:
+                    l.BackColor = Color.MediumSpringGreen;
+                    break;
+                case 512:
+                    l.BackColor = Color.SeaGreen;
+                    break;
+                case 1024:
+                    l.BackColor = Color.Goldenrod;
+                    break;
+                case 2048:
+                    l.BackColor = Color.Yellow;
                     break;
                 default:
-                    l.BackColor = Color.Green;
+                    l.BackColor = Color.Orange;
                     break;
             }
         }
@@ -79,21 +120,12 @@ namespace twozerofoureight
             UpdateTile(lbl31,board[3, 1]);
             UpdateTile(lbl32,board[3, 2]);
             UpdateTile(lbl33,board[3, 3]);
-
-            score = 0;
-            for (int i = 0; i < 4; i++)
-            {
-                for (int j = 0; j < 4; j++)
-                {
-                    score = score + board[i, j];
-                }
-            }
-            ScoreLb.Text = "SCORE : " + score.ToString();
         }
 
         private new void KeyDown(object sender, KeyEventArgs e)
         {
             textBox1.Hide();
+            ScoreLb.Show();
             if (e.KeyCode == Keys.Left)
             {
                 controller.ActionPerformed(TwoZeroFourEightController.LEFT);
