@@ -54,6 +54,7 @@ namespace twozerofoureight
         {
             if (i != 0)
             {
+
                 l.Text = Convert.ToString(i);
             } else {
                 l.Text = "";
