@@ -82,13 +82,13 @@ namespace twozerofoureight
                     l.BackColor = Color.Tomato;
                     break;
                 case 128:
-                    l.BackColor = Color.PaleGreen;
+                    l.BackColor = Color.SpringGreen;
                     break;
                 case 256:
-                    l.BackColor = Color.MediumSpringGreen;
+                    l.BackColor = Color.GreenYellow;
                     break;
                 case 512:
-                    l.BackColor = Color.SeaGreen;
+                    l.BackColor = Color.Green;
                     break;
                 case 1024:
                     l.BackColor = Color.Goldenrod;

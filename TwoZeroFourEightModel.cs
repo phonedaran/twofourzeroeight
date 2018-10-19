@@ -74,7 +74,7 @@ namespace twozerofoureight
             return true;
         }
 
-        public int Score()
+  /*      public int Score()
         {
             score = 0;
             for (int i = 0; i < 4; i++)
@@ -85,7 +85,7 @@ namespace twozerofoureight
                 }
             }
             return score;
-        }
+        }*/
 
         public void Clear()
         {
@@ -105,7 +105,6 @@ namespace twozerofoureight
 
         public int[,] GetBoard()
         {
-            Score();
             return board;
         }
 
@@ -154,6 +153,7 @@ namespace twozerofoureight
                     if (j > 0 && buffer[j] != 0 && buffer[j] == buffer[j - 1])
                     {
                         buffer[j - 1] *= 2;
+                        score += buffer[j-1];
                         buffer[j] = 0;
                     }
                 }
@@ -206,6 +206,7 @@ namespace twozerofoureight
                     if (j > 0 && buffer[j] != 0 && buffer[j] == buffer[j - 1])
                     {
                         buffer[j - 1] *= 2;
+                        score += buffer[j - 1];
                         buffer[j] = 0;
                     }
                 }
@@ -260,6 +261,7 @@ namespace twozerofoureight
                     if (j > 0 && buffer[j] != 0 && buffer[j] == buffer[j - 1])
                     {
                         buffer[j - 1] *= 2;
+                        score += buffer[j - 1];
                         buffer[j] = 0;
                     }
                 }
@@ -311,6 +313,7 @@ namespace twozerofoureight
                     if (j > 0 && buffer[j] != 0 && buffer[j] == buffer[j - 1])
                     {
                         buffer[j - 1] *= 2;
+                        score += buffer[j - 1];
                         buffer[j] = 0;
                     }
                 }

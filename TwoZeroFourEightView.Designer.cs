@@ -261,7 +261,7 @@
             // 
             this.ScoreLb.AutoSize = true;
             this.ScoreLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.ScoreLb.Location = new System.Drawing.Point(63, 426);
+            this.ScoreLb.Location = new System.Drawing.Point(43, 426);
             this.ScoreLb.Name = "ScoreLb";
             this.ScoreLb.Size = new System.Drawing.Size(270, 58);
             this.ScoreLb.TabIndex = 20;
@@ -270,7 +270,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.textBox1.Location = new System.Drawing.Point(12, 426);
+            this.textBox1.Location = new System.Drawing.Point(12, 425);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(420, 62);
